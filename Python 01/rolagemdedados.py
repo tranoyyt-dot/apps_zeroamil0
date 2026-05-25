@@ -12,16 +12,12 @@ while True:
 
     if soma < 6:
         print("Atingido!")
-        
     elif soma > 6 and soma < 12:
         print("Esquiva com sucesso!")
-        
     elif soma > 12 and soma < 18:
         print("Esquiva e possibilidade de Contra-ataque!")
-
     else:
         print("Resultado máximo!")
-
     continuar = input("\nDeseja rolar novamente? (s/n): ").lower()
     if continuar != "s":
         print("Encerrando o programa...")
