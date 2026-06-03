@@ -51,5 +51,5 @@ def listar_atracoes():
             print(f"{atracao[0]} - {atracao[1]}")
             except Error as erro:
             print(f"Erro ao consultar {erro}")
-cadastrar_atracao()
-lista_atracao()
+
+
