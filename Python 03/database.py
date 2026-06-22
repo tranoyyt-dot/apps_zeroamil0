@@ -52,6 +52,28 @@ def listar_atracoes():
         except Error as erro:
             print(f"Erro ao consultar {erro}")
 
+def listar_atracoes_by_status():
+    """Listar as atrações por status"""
+    conexao = conectar_banco()
+    if conexao:
+        cursor = conexao.cursor()
+        status_buscar = input("Digite o status: ")
+        sql = "SELECT nome, status FROM  atracoes WHERE status = %s"
+        dados = (status_buscar,)
+        try:
+            cursor.execute(sql, dados)
+            resultados = cursor.fetchall()
+            if not resultados:
+                print("Nenhuma atração com esse status")
+            else:
+                for atracao in resultados:
+                    print(f"Atração: {atracao[0]}")
+        except Error as erro:
+            print(f"Erro ao buscar: {erro}")
+        finally:
+            cursor.close()
+            conexao.close()
+
 def cadastrar_bilhetes():
     conexao_b = conectar_banco()
     if conexao_b:
